@@ -74,7 +74,7 @@ public class LabQuiz extends Application implements EventHandler{
         
         pane.setBottom(commandPane);
         
-        Scene scene = new Scene(pane, 500, 500);
+        Scene scene = new Scene(pane, 500, 300);
         primaryStage.setScene(scene);
         primaryStage.show();
         
