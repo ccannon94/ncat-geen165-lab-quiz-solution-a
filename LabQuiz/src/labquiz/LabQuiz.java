@@ -9,10 +9,12 @@ import javafx.application.Application;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 /**
@@ -53,9 +55,21 @@ public class LabQuiz extends Application implements EventHandler{
         
         pane.setCenter(dataPane);
         
+        HBox commandPane = new HBox();
+        
+        Button calculateButton = new Button("Calculate");
+        Button resetButton = new Button("Reset");
+        Button closeButton = new Button("Close");
+        
+        commandPane.getChildren().addAll(calculateButton, resetButton, closeButton);
+        
+        pane.setBottom(commandPane);
+        
+        
         Scene scene = new Scene(pane, 500, 500);
         primaryStage.setScene(scene);
         primaryStage.show();
+        
     }
 
     @Override
