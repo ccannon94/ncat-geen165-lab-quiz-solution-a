@@ -83,7 +83,7 @@ public class LabQuiz extends Application implements EventHandler{
         }else if(pressed.getText().equals("Reset")){
             
         }else if(pressed.getText().equals("Close")){
-            Sytem.exit(0);
+            System.exit(0);
         }
     }
     
