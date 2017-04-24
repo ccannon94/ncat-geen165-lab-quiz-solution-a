@@ -9,6 +9,7 @@ import javafx.application.Application;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -23,6 +24,11 @@ import javafx.stage.Stage;
  */
 public class LabQuiz extends Application implements EventHandler{
 
+    private TextField weightTextField;
+    private TextField heightTextField;
+    private Label bmiLabel;
+    private Label bmiStatusLabel;
+    
     /**
      * @param args the command line arguments
      */
@@ -43,10 +49,10 @@ public class LabQuiz extends Application implements EventHandler{
         dataPane.add(new Label("Body Mass Index:"), 0, 2);
         dataPane.add(new Label("BMI Status:"), 0, 3);
         
-        TextField weightTextField = new TextField();
-        TextField heightTextField = new TextField();
-        Label bmiLabel = new Label("0.0");
-        Label bmiStatusLabel = new Label("Under/Normal/Over/Obese");
+        weightTextField = new TextField();
+        heightTextField = new TextField();
+        bmiLabel = new Label("0.0");
+        bmiStatusLabel = new Label("Under/Normal/Over/Obese");
         
         dataPane.add(weightTextField, 1, 0);
         dataPane.add(heightTextField, 1, 1);
@@ -79,7 +85,15 @@ public class LabQuiz extends Application implements EventHandler{
         Button pressed = (Button) event.getSource();
         
         if(pressed.getText().equals("Calculate")){
-            
+            double height = 0.0;
+            double weight = 0.0;
+            try{
+                height = Double.parseDouble(heightTextField.getText().trim());
+                weight = Double.parseDouble(weightTextField.getText().trim());
+            }catch(Exception e){
+                Alert inputAlert = new Alert(Alert.AlertType.ERROR, "Please Enter A Positive Numerical Value for Height and Weight");
+                inputAlert.showAndWait();
+            }
         }else if(pressed.getText().equals("Reset")){
             
         }else if(pressed.getText().equals("Close")){
