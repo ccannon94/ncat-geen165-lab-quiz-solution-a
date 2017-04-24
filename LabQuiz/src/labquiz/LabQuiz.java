@@ -109,7 +109,10 @@ public class LabQuiz extends Application implements EventHandler{
                 inputAlert.showAndWait();
             }
         }else if(pressed.getText().equals("Reset")){
-            
+            heightTextField.clear();
+            weightTextField.clear();
+            bmiLabel.setText("0.0");
+            bmiStatusLabel.setText("Under/Normal/Over/Obese");
         }else if(pressed.getText().equals("Close")){
             System.exit(0);
         }
