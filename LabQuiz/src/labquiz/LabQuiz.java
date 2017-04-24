@@ -58,13 +58,15 @@ public class LabQuiz extends Application implements EventHandler{
         HBox commandPane = new HBox();
         
         Button calculateButton = new Button("Calculate");
+        calculateButton.setOnAction(this);
         Button resetButton = new Button("Reset");
+        resetButton.setOnAction(this);
         Button closeButton = new Button("Close");
+        closeButton.setOnAction(this);
         
         commandPane.getChildren().addAll(calculateButton, resetButton, closeButton);
         
         pane.setBottom(commandPane);
-        
         
         Scene scene = new Scene(pane, 500, 500);
         primaryStage.setScene(scene);
@@ -74,7 +76,15 @@ public class LabQuiz extends Application implements EventHandler{
 
     @Override
     public void handle(Event event) {
-
+        Button pressed = (Button) event.getSource();
+        
+        if(pressed.getText().equals("Calculate")){
+            
+        }else if(pressed.getText().equals("Reset")){
+            
+        }else if(pressed.getText().equals("Close")){
+            Sytem.exit(0);
+        }
     }
     
 }
