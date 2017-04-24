@@ -91,6 +91,10 @@ public class LabQuiz extends Application implements EventHandler{
                 height = Double.parseDouble(heightTextField.getText().trim());
                 weight = Double.parseDouble(weightTextField.getText().trim());
                 
+                if(height <= 0 || weight <= 0){
+                    throw new Exception("Values must be greater than 0");
+                }
+                
                 double bmi = (weight / (height*height)) * 730.0;
                 
                 bmiLabel.setText(bmi + "");
