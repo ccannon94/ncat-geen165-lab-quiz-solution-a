@@ -90,6 +90,20 @@ public class LabQuiz extends Application implements EventHandler{
             try{
                 height = Double.parseDouble(heightTextField.getText().trim());
                 weight = Double.parseDouble(weightTextField.getText().trim());
+                
+                double bmi = (weight / (height*height)) * 730.0;
+                
+                bmiLabel.setText(bmi + "");
+                
+                if(bmi < 18.5){
+                    bmiStatusLabel.setText("Under");
+                }else if(bmi <= 24.9){
+                    bmiStatusLabel.setText("Normal");
+                }else if(bmi <= 29.9){
+                    bmiStatusLabel.setText("Over");
+                }else{
+                    bmiStatusLabel.setText("Obese");
+                }
             }catch(Exception e){
                 Alert inputAlert = new Alert(Alert.AlertType.ERROR, "Please Enter A Positive Numerical Value for Height and Weight");
                 inputAlert.showAndWait();
